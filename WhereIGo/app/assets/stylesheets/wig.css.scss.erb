@@ -1,0 +1,877 @@
+// Esquema de cores
+$wig-xdarkgrey: #141414;
+$wig-greatpink: #f3276d;
+$wig-oddyellow: #f0b567;
+$wig-lightgrey: #f0f0f0;
+$wig-lightpink: #ff508c;
+$wig-halfgrey: #ddd;
+
+// outros atributos
+$valor-borda: 4px;
+
+@mixin wig-box {
+    background-color: $wig-xdarkgrey;
+    padding: 30px;
+    margin: 15px;
+    border-radius: $valor-borda;
+}
+@mixin center {
+    margin-left: auto;
+    margin-right: auto;
+}
+@mixin wig-body {
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-color: $wig-lightgrey;
+}
+html {
+    height: 100%;
+    margin: 0;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-image: url(<%= image_url("background-homepage.jpg") %>); 
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-color: $wig-xdarkgrey;
+    color: $wig-xdarkgrey;
+}
+.wig-body-sign {
+    @include wig-body;
+    background-image: url(<%= image_url("background-login.jpg") %>);
+}
+
+h1 {
+    color: $wig-xdarkgrey;
+    font-size: 1.6rem;
+    margin: 0px 0 5px 0;
+    &:after {
+        content: '~';
+        color: $wig-greatpink;
+        margin: 8px;
+        font-weight: 200;
+        }
+    }
+
+a {
+    color: $wig-greatpink;
+    &:hover, &:active {
+        color: $wig-greatpink;
+        text-decoration: underline;
+    }
+}
+
+h2 {
+    color: $wig-xdarkgrey;
+    font-size: 1.3rem;
+    margin: 20px 0 10px 0;
+    &:after {
+        content: '~';
+        color: $wig-greatpink;
+        margin: 8px;
+        font-weight: 200;
+    }
+}
+
+.wig-textbox {
+    display: block;
+    width: 300px;
+    padding: .5rem .75rem;
+    font-size: 0.8em;
+    line-height: 1.25;
+    color: $wig-xdarkgrey;
+    background-color: $wig-lightgrey;
+    background-clip: padding-box;
+    border: 0;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-radius: $valor-borda;
+
+    &:focus {
+        border: 1px solid $wig-oddyellow;
+        outline: none;
+    }
+}
+
+textarea.wig-textbox {
+    width: 100%;
+}
+
+.wig-formlabel {
+    color: $wig-lightgrey;
+    text-align: left;
+    margin-bottom: 0;
+    margin-top: 12px;
+    font-size: .8em;
+}
+
+.wig-button {
+    color: $wig-lightgrey;
+    background-color: $wig-greatpink;
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .5rem .75rem;
+    font-size: .9rem;
+    line-height: 1.25;
+    border-radius: $valor-borda;
+    cursor: pointer;
+    //transition: all .15s ease-in-out;
+    &:hover, &:focus, &:active {
+        outline: none;
+        opacity: 0.8;
+        text-decoration: none;
+        color: $wig-lightgrey;
+    }
+    &:focus {
+        border: 1px solid $wig-oddyellow;
+    }
+}
+
+a.wig-button {
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.wig-flash {
+    background-color: $wig-oddyellow;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 0.7em;
+}
+
+////////////////////////////////////////////////////////////
+///////////////// LOGIN ////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+.login-align {
+    max-width: 450px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.login-form-homepage {
+    span {
+        color: $wig-lightgrey;
+    }
+    
+    h1 {
+        color: $wig-lightgrey;
+        font-size: 1.3rem;
+        text-align: center;
+        margin: 25px 0 20px 0;
+        &:before, &:after {
+            content: '~';
+            color: $wig-greatpink;
+            margin: 8px;
+            }
+    }
+    h2 {
+        color: $wig-lightgrey;
+    }
+    .wig-textbox, .wig-button {
+        width: 100%;
+    }
+
+    label {
+        color: $wig-lightgrey;
+    }
+    
+}
+
+.login-form {
+    span {
+        color: $wig-xdarkgrey;
+    }
+    
+    h1 {
+        color: $wig-xdarkgrey;
+        font-size: 1.3rem;
+        text-align: center;
+        margin: 25px 0 20px 0;
+        &:before, &:after {
+            content: '~';
+            color: $wig-greatpink;
+            margin: 8px;
+            }
+    }
+    h2 {
+        color: $wig-xdarkgrey;
+    }
+    .wig-textbox, .wig-button {
+        width: 100%;
+    }
+
+    label {
+        color: $wig-xdarkgrey;
+    }
+    
+}
+
+#flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#signup {
+    @include wig-box;
+    @include center;
+    //margin-top: 100px;
+}
+
+#signup a {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+#logo-signup {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+#form-inputs {
+    margin-bottom: 30px;
+}
+
+.wig-formlinks {
+    margin-top: 15px;
+    text-align: center;
+    color: $wig-lightgrey;
+}
+
+.wig-formlinks a {
+    color: $wig-oddyellow;
+}
+
+////////////////////////////////////////////////////////////
+///////////////// SIGNUP ///////////////////////////////////
+////////////////////////////////////////////////////////////
+.wig-choice-box {
+    margin-bottom: 20px;
+    padding: 6px;
+    transition: all .15s ease-in-out;
+    cursor: pointer;
+    font-weight: 500;
+    color: $wig-lightgrey;
+    border-radius: $valor-borda;
+    &:hover {
+        background-color: $wig-oddyellow;
+        color: $wig-lightgrey;
+    }
+}
+
+.wig-choice-link {
+    &:hover {
+        text-decoration: none;
+    }
+}
+.wig-choice-box span {
+    line-height: 1.1em;
+    display: block;
+    margin-top: 11px;
+}
+
+#signup h1 {
+    color: $wig-lightgrey;
+}
+
+// turbo-links
+.turbolinks-progress-bar {
+    background-color: $wig-greatpink;   
+}
+
+////////////////////////////////////////////////////////////
+///////////////// HOMEPAGE /////////////////////////////////
+////////////////////////////////////////////////////////////
+.wig-body-homepage {
+    @include wig-body;
+    background-image: url(<%= image_url("background-homepage.jpg") %>);
+    color: $wig-lightgrey;
+}
+.wig-registerbox-homepage {
+    //@include wig-box;
+    padding: 15px;
+    margin: 0;
+}
+#logo-homepage {
+    display: block;
+    margin-bottom: 40px;
+}
+.wig-flex-homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 1000px;
+}
+#link-about, #link-team {
+    cursor: pointer;
+}
+.wig-navbar-homepage {
+    background-color: rgba(0,0,0,0);
+    transition: all .2s;
+}
+.wig-navbar-homepage-active {
+    background-color: rgba(0,0,0,.85);
+    transition: all .2;
+}
+.wig-navbar-container-homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    height: 66px;
+}
+.wig-navbar-right {
+    flex-basis: 0;
+}
+.wig-navbar-logo {
+    opacity: 0;
+    transition: all .2s;
+    width: 122px;
+}
+.wig-navbar-logo-active {
+    transition: all .2s;
+    opacity: 1;
+    width: 122px;
+    top: 0;
+}
+.wig-homepage-title {
+    color: #fff;
+    font-size: 3em;
+    font-weight: 500;
+    line-height: .8em;
+}
+.wig-homepage-message {
+    margin-top: 12px;
+    font-size: 1.2em;
+    font-weight: 200;
+    /* line-height: 1.2em; */
+    display: block;
+}
+.wig-about {
+    background-color: rgba(255,255,255, .95);
+    /*height: 100vh;*/
+    h2 {
+        font-size: 1.3em;
+        font-weight: 500;
+        color: $wig-xdarkgrey;
+        margin-top: 34px;
+        &:after {
+            display: none;
+        }
+    }
+    p {
+        color: $wig-xdarkgrey;
+    }
+}
+.wig-flex-about {
+    justify-content: center;
+    align-items: center;
+    padding: 40px 80px;
+}
+.wig-about-item {
+    text-align: center;
+}
+
+.wig-team {
+    background-color: $wig-xdarkgrey;
+    color: $wig-lightgrey;
+}
+
+.wig-flex-team {
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    h1 {
+        color: $wig-lightgrey;
+        text-align: center;
+        font-size: 1.6em;
+        margin: 16px 0 50px 0;
+        width: 100%;
+        &:before, &:after {
+            content: '~';
+            color: $wig-greatpink;
+            font-weight: 200;
+            margin: 10px;
+        }
+    }
+}
+
+.wig-team-member {
+    text-align: center;
+    h2 {
+        font-size: 1.3em;
+        margin-bottom: 0;
+        color: $wig-lightgrey;
+        &:after {
+            display: none;
+        }
+    }
+    p {
+        font-size: .9em;
+    }
+    a {
+        color: $wig-oddyellow;
+        &:hover {
+            text-decoration: underline;
+            color: $wig-oddyellow;
+        }
+        &:active {
+            color: $wig-greatpink;
+        }
+    }
+}
+
+.wig-team-pic {
+    width: 120px;
+    border-radius: 50%;
+    border: 5px solid #ef4471;
+    margin: 0 30px;
+}
+
+.wig-footer {
+    color: $wig-xdarkgrey;
+    text-align: center;
+    margin-top: 15px;
+    font-size: .9em;
+}
+
+////////////////////////////////////////////////////////////
+///////////////// APPLICATION LAYOUT ///////////////////////
+////////////////////////////////////////////////////////////
+.wig-bg {
+    
+}
+header {
+    background-color: transparent;
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    z-index: 1030;
+}
+.wig-navbar {
+    top: 0;
+    right: 0;
+    left: 0;
+    font-size: .9em;
+    padding: 2px;
+    height: 80px;
+    max-width: 1070px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 65px;
+    
+    a {
+        color: $wig-lightgrey;
+        &:hover, &:active {
+            color: $wig-oddyellow;
+        }
+    }
+}
+.wig-navbar-brand {
+    width: 114px;
+}
+.wig-search {
+    max-width: 425px!important;
+    width: 425px!important;
+}
+.wig-dropdown {
+    a {
+        color: $wig-xdarkgrey;
+        &:hover, &:active {
+            color: $wig-greatpink;
+        }
+    }
+    font-size: .9em;
+    font-weight: 200;
+}
+.dropdown-item {
+	&:active {
+		background-color: $wig-lightgrey;
+	}
+}
+.dropdown-toggle::after {
+    vertical-align: .165em;
+    margin-left: .455em;
+}
+.wig-sidebar {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $wig-greatpink;
+    width: 54px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1031;
+    // padding: 10px 7px;
+    padding: 10px 0;
+    overflow: hidden;
+    min-height: 620px;
+}
+.wig-sidebar-icon {
+    text-align: center;
+    padding: 35px 0;
+    
+    i {
+        color: $wig-lightgrey;
+        font-size: 1.4em;
+        transition: all .2s;
+    }
+    &:hover {
+        background-color: $wig-lightpink;
+    }
+    
+}
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.sidebar-userpic {
+    margin: 2px auto;
+    #pic {
+        border-radius: 50%;
+        background-color: $wig-lightgrey;
+        width: 40px;
+        height: 40px;
+        border: 2px solid $wig-lightgrey;
+    }
+}
+.sidebar-text {
+    p {
+        font-weight: 500;
+        color: #fff;
+        font-size: 11px;
+        padding: 0 7px;
+    }
+    a {
+        color: $wig-oddyellow;
+        &:hover, &:active {
+            color: $wig-oddyellow;
+            text-decoration: none;
+        }
+    }
+}
+.wig-align {
+    width: 100%;
+    margin-left: 65px;
+    margin-top: 100px;
+    margin-right: 10px;
+}
+.wig-main {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1070px;
+    padding: 40px;
+    border-radius: $valor-borda $valor-borda 0 0;
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+    min-height: 88vh;
+    
+    .wig-flash {
+        background-color: transparent;
+        display: inline-block;
+        max-width: 180px;
+        width: 100%;
+        text-align: left;
+        font-weight: 500;
+        padding: 8px;
+        margin-top: 5px;
+        font-size: 0.7em;
+    }
+    .wig-formlabel {
+        color: $wig-xdarkgrey;
+    }
+}
+////////////////////////////////////////////////////////////
+///////////////// DASHBOARD CLIENTE ////////////////////////
+////////////////////////////////////////////////////////////
+
+.wig-dashboard-card {
+    width: 100%;
+    background-color: $wig-lightgrey;
+    border-radius: $valor-borda;
+    padding: 10px;
+    margin: 10px 0;
+    transition: all .2s;
+    h3 {
+        font-size: 1.1em;
+    }
+    p {
+        font-size: .9em;
+        font-weight: 300;
+    }
+    a {
+        color: $wig-xdarkgrey;
+        &:hover {
+            color: $wig-xdarkgrey;
+            text-decoration: none
+        }
+    }
+    &:hover {
+        box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
+    }
+    
+}
+.wig-dashboard-card p {
+    margin-bottom: 0;
+}
+#lulu > h3 {
+    display: inline-block;
+}
+.wig-establishment-picture {
+    width: 100px;
+    height: 100px;
+    background-color: $wig-greatpink;
+}
+.wig-establishment-percentage {
+    float: right;
+    font-size: 10px;
+    color: $wig-greatpink;
+    font-size: 14px;
+    color: #f3276d;
+    display: inline-block;
+    /* margin-right: auto; */
+    float: right;
+}
+
+////////////////////////////////////////////////////////////
+///////////////// ESTABELECIMENTO LAYOUT ///////////////////
+////////////////////////////////////////////////////////////
+.wig-review {
+    width: 100%;
+    h3 {
+        font-size: .8em;
+        text-transform: uppercase;
+        font-weight: 700;
+        &:after {
+            content: '~';
+            font-weight: 600;
+            color: $wig-greatpink;
+            margin-left: 5px;
+        }
+    }
+}
+
+.wig-tag {
+    padding: 4px 8px;
+    background-color: #f0b567;
+    font-size: 0.8em;
+    color: #f0f0f0;
+    font-weight: 800;
+    border-radius: 4px;
+    margin-right: 5px;
+    display: inline-block;
+    margin: 10px 0 0 0;
+}
+.wig-description {
+    text-align: justify;
+    margin-top: 15px;
+}
+.wig-establishment-pic {
+    width: 100%;
+    background-color: $wig-halfgrey;
+    height: 310px;
+    margin-bottom: 30px;
+}
+.wig-establishment-info {
+    ul {
+        li {
+            
+        }
+    }
+}
+.wig-review-box {
+    width: 80px;
+}
+.wig-thumbs {
+    display: flex;
+    flex-flow: row nowrap;
+    a {
+        color: $wig-halfgrey;
+    }
+    
+}
+.wig-thumbs-active {
+    color: $wig-greatpink !important;
+}
+
+.wig-review-thumb {
+    font-size: 2em;
+    margin: 0 5px;
+}
+.wig-percentbar {
+    width: 100%;
+    background-color: $wig-halfgrey;
+    height: 5px;
+    margin-top: 3px;
+    #positive {
+        width: 0%;
+        height: 5px;
+        background-color: $wig-greatpink;
+    }
+    #percent {
+        font-size: .7em;
+        text-align: left;
+        font-weight: 700;
+    }
+}
+.wig-establishment-map {
+    background-color: $wig-halfgrey;
+    height: 225px;
+    margin-bottom: 30px;
+}
+.wig-establishment-info {
+    ul {
+        font-size: .9em;
+        padding-left: 0;
+        li {
+            list-style: none;
+            margin-bottom: 8px;
+        }
+    }
+    .info-icon {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        margin-right: 10px;
+    }
+}
+
+.wig-comment {
+    margin: 15px 0;
+}
+.wig-comment p {
+    font-size: .9em;
+    margin: 0;
+}
+.wig-comment-userpic {
+    width: 50px;
+    height: 50px;
+    background-color: $wig-oddyellow;
+}
+h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+#comment-area {
+    margin: 8px 0;
+}
+#textarea-comment {
+    margin: 10px 0;
+}
+.wig-control-button, input[type="file"]  button {
+    color: $wig-lightgrey;
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .5rem .75rem;
+    font-size: .9rem;
+    line-height: 1.25;
+    border-radius: $valor-borda;
+    cursor: pointer;
+    //transition: all .15s ease-in-out;
+    &:hover, &:focus, &:active {
+        outline: none;
+        opacity: 0.8;
+        text-decoration: none;
+        color: $wig-lightgrey;
+    }
+    &:focus {
+        border: 1px solid $wig-oddyellow;
+    }
+
+    background-color: $wig-xdarkgrey;
+    float: right;
+}
+
+////////////////////////////////////////////////////////////
+///////////////// PREFERENCIAS LAYOUT //////////////////////
+////////////////////////////////////////////////////////////
+
+body.wig-body-pref {
+    background-image: url(<%= image_url("background-homepage.jpg") %>); 
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-color: $wig-xdarkgrey;
+    color: $wig-xdarkgrey;
+    
+    h1 {
+        color: $wig-xdarkgrey;
+    }
+    h2 {
+        color: $wig-xdarkgrey;
+    }
+}
+.wig-pref-container {
+    background-color: #fff;
+    padding: 30px;
+    margin: 15px;
+    border-radius: $valor-borda;
+}
+.wig-clearfix {
+    width: 100%;
+    margin: 75px 0;
+}
+#logo-pref {
+    margin: 0px 0px 25px 35px;
+}
+.wig-pref-buttons {
+    width: 100%;
+    text-align: right;
+    margin: 30px 0 0 0;
+}
+
+.wig-choices-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.wig-pref-choice {
+    padding: 5px 20px;
+    background-color: $wig-oddyellow;
+    margin: 5px;
+    font-weight: 500;
+    border-radius: $valor-borda;
+    flex-grow: 1;
+    label {
+        margin: 0;
+    }
+}
+
+.wig-music {
+    background-color: #5196e0;
+}
+.wig-food {
+    background-color: #32ab4d;
+}
+.wig-ambient {
+    background-color: #a377a9;
+}
+
+.pref-align {
+    max-width: 775px;
+    margin-right: auto;
+    margin-left: auto;
+}

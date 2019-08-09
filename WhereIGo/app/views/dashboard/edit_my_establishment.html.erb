@@ -1,0 +1,34 @@
+<h1>Editar estabelecimento</h1>
+<%=form_for @establishments, url: {action: 'update_my_establishment'}, :method => :POST do |e| %>
+    <div id="form-inputs">
+        
+        <%=image_tag(@establishments.image, size:150)%>
+        <br>
+        
+        <label for="image" class="wig-formlabel">Imagem do estabelecimento</label>    
+        <%= e.file_field :image, class: "wig-textbox", placeholder: "Imagem do estabelecimento" %>
+        
+        <label for="name" class="wig-formlabel">Nome</label>
+        <%= e.text_field :name, class: "wig-textbox", placeholder: "Nome do estabelecimento", value: @establishments.name %>
+        
+        <label for="address" class="wig-formlabel">Endereço</label>
+        <%= e.text_field :address, class: "wig-textbox", placeholder: "Endereço", value: @establishments.address %>
+        
+        <label for="description" class="wig-formlabel">Descrição</label>
+        <%= e.text_area :description, class: "wig-textbox", placeholder: "Descrição do estabelecimento", value: @establishments.description %>
+        
+        <label for="email" class="wig-formlabel">E-mail</label>
+        <%= e.email_field :email, class: "wig-textbox", placeholder: "Email de contato", value: @establishments.email %>
+        
+        <label for="website" class="wig-formlabel">Website</label>
+        <%= e.text_field :website, class: "wig-textbox", placeholder: "Website", value: @establishments.website %>
+        
+        <p style="font-size: small; margin-top: 10px;">Deseja excluir este estabelecimento?<a><%= link_to "Clique aqui", {:controller => "dashboard", :action => "remove_my_establishment"}, :style=>'color:#f0b567;', :data => {:confirm => 'Você tem certeza que deseja excluir esse estabelecimento?'} %></a></p> 
+
+    </div>
+    <%= e.submit "Salvar alterações", class: "wig-button" %>
+    <a href="<%= url_for controller: "account", action: "register_speciality_music"%>" title="" class="wig-control-button">
+        <i class="fa fa-gear" aria-hidden="true"></i> Editar especialidades
+    </a>
+    <%= flash_message.html_safe %>
+<%end%>

@@ -1,0 +1,17 @@
+
+<%= form_tag(controller: "account", action: "login_authentication", method: "post", role: "login") do %>
+    <h1>Login</h1>
+    <%= flash_message.html_safe %>
+    <div id="form-inputs">
+        <%= label_tag(:email, "E-mail:", class: 'wig-formlabel') %>
+        <%= email_field_tag(:email, nil , class: 'wig-textbox', placeholder: 'Digite seu e-mail') %>
+        <%= label_tag(:password, "Senha:", class: 'wig-formlabel') %>
+        <%= password_field_tag(:password, nil, class: 'wig-textbox', placeholder: 'Digite sua senha') %>
+    </div>
+    <%= submit_tag("Entrar", class: 'wig-button') %>
+    
+    <div class="wig-formlinks">
+        <span>Não tem uma conta? <%= link_to 'Cadastre-se', action:'register_account' %> </span>
+    </div>
+<% end %>
+
